@@ -9,7 +9,11 @@ while True:
     won = False
     for i in range(3):
         userGuess = input("Guess a Number between 1 to 10 : ")
-        userGuess = int(userGuess)
+        try:
+            userGuess = int(userGuess)
+        except ValueError:
+            print('Wrong Value!!! Insert Number')
+            break
         if userGuess == com_value:
             won = True
             break
