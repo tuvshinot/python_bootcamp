@@ -24,3 +24,20 @@ def add_to_ten(num1, num2):
 
 print(add_to_ten(10, 12)) # 12
 print(add_to_ten(1, 2)) # 'Invalid! First argument must be 10'
+
+
+def ensure_me_writing(arg_from_deco):
+	def inner(fn):
+		@wraps(fn)
+		def wrapper(*args, **kwargs):
+			if False:
+				return 'something'
+			return fn(*args)
+		return wrapper
+	return inner
+
+def dummy_decorator(fn):
+	@wraps(fn)
+	def wrapper(*args_fn):
+		return fn()
+
